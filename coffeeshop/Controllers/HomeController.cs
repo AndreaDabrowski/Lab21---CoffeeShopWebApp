@@ -45,9 +45,9 @@ namespace CoffeeShop.Controllers
 
                 //ViewData["ConfMessage"] = "Thanks " + newUser.FirstName;
 
-                ViewBag.ConfMessage = "Thanks " + newUser.FirstName;
+                ViewBag.ConfMessage = "You're in, " + newUser.FirstName + "!";
 
-                return View("Confirm");
+                return View("Summary");
             }
 
             else
