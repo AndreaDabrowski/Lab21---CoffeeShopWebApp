@@ -25,6 +25,10 @@ namespace CoffeeShop.Models
         public string Password { set; get; }
 
         [Required]
+        [RegularExpression(@"^[A-z0-9]{2,}$")]
+        public string PasswordConfirm { set; get; }
+
+        [Required]
         [RegularExpression(@"^[0-9]{10}$")]
         public string PhoneNumber { set; get; }
 
@@ -40,8 +44,9 @@ namespace CoffeeShop.Models
             PhoneNumber = "";
             Password = "";
             BirthDate = "";
+            PasswordConfirm = "";
         }
-        public UserInput(string fn, string ln, string em, string pn, string pw, string bd)
+        public UserInput(string fn, string ln, string em, string pn, string pw, string pwc, string bd)
         {
             FirstName = fn;
             LastName = ln;
@@ -49,7 +54,9 @@ namespace CoffeeShop.Models
             PhoneNumber = pn;
             Password = pw;
             BirthDate = bd;
+            PasswordConfirm = pwc;
         }
+
 
     }
 }
