@@ -1,23 +1,14 @@
-﻿
+﻿<head>
+    <link href="~/StyleSheet/StyleSheet.css" rel="stylesheet" type="text/css" />
+</head>
+
+
 @{
     ViewBag.Title = "Register";
 }
-<script>
-    var check_match = function () {
-        if (document.getElementById("Password").value === document.getElementById("PasswordConfirm").value) {
-            document.getElementById("message").style.color = "green";
-            document.getElementById("message").innerHTML = "matching!";
-        }
-        else {
-            document.getElementById("message").innerHTML = "not matching!";
-            document.getElementById("message").style.color = "red";
-        }
-    }
-</script>
-
 <h1>Registration Page</h1>
 <h3>Sign up below:</h3>
-<form action="/Home/AddUser" onsubmit="return JSValidate()" method="post">
+<form action="/Home/AddUser" onsubmit="return ValidateLastName()" method="post">
     <!--experiment with get and post-->
     <label class="control-label">
         First Name:
@@ -25,11 +16,16 @@
     </label> <br />
     <label class="control-label">
         Last Name:
-        <input type="text" name="LastName" id="LastName" class="form-control" placeholder="Doe" />
+        <input type="text" name="LastName" id="LastName" class="form-control" placeholder="Doe" onsubmit="ValidateLastName()"/>
     </label> <br />
     <label class="control-label">
         Email:
-        <input type="email" name="Email" id="Email" class="form-control" placeholder="Xxx@xxx.com" />
+        <input type="email" name="Email" id="Email" class="form-control" placeholder="Xxx@xxx.com" onkeyup="check_match2()"/>
+    </label> <br />
+    <label class="control-label">
+        Confirm Email:
+        <input type="email" name="ConfirmEmail" id="ConfirmEmail" class="form-control" placeholder="Xxx@xxx.com" onkeyup="check_match2()" onsubmit="EmailsEqual()"/>
+        <span id="message2"></span>
     </label> <br />
     <label class="control-label">
         Birthdate:
@@ -45,12 +41,23 @@
     </label> <br />
     <label class="control-label">
         Confirm Password:
-        <input type="password" name="PasswordConfirm" id="PasswordConfirm" class="form-control" onkeyup="check_match()" />
+        <input type="password" name="PasswordConfirm" id="PasswordConfirm" class="form-control" onkeyup="check_match()" onsubmit="PasswordsEqual()"/>
         <span id="message"></span>
     </label> <br />
+    <br/>
+    <fieldset>
+        <legend>Non-Text Fieldsets</legend>@*none are connected to anything yet*@
+        Excitement Meter:<p>Bummed<input type="range" name="Excitement" id="Excitement" class="form-control" />Hyped</p>
+        Sign up for promotions?<input type="checkbox" name="Promo" id="Promo" class="form-control" />
+        Are you cool?<br />
+        <input type="radio" name="Cool" value="yes"> Yes<br>
+        <input type="radio" name="Cool" value="no"> No<br>
+        <input type="radio" name="Cool" value="other"> Other
+    </fieldset>
+
     <input type="submit" value="Register!" class="btn-default" />
 
 
 </form>
-@*JS script pointer*@
+<script src="~/Scripts/Javascript.js"></script>
 
