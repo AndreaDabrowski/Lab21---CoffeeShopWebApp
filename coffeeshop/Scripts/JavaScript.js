@@ -36,6 +36,14 @@ function ValidateEmail() {
         return false;
     }
 }
+function JSValidate() {
+    if (PasswordsEqual() && EmailsEqual() && ValidateLastName()) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
 var check_match = function () {
     if (document.getElementById("Password").value === document.getElementById("PasswordConfirm").value) {

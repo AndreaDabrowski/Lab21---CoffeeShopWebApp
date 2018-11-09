@@ -61,6 +61,8 @@ namespace CoffeeShop.Models
             BirthDate = bd;
             PasswordConfirm = pwc;
             ConfirmEmail = cem;
+
+            
         }
 
 

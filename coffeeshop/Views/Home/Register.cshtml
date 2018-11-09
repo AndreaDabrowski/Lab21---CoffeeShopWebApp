@@ -1,5 +1,5 @@
 ﻿<head>
-    <link href="~/StyleSheet/StyleSheet.css" rel="stylesheet" type="text/css" />
+   
 </head>
 
 
@@ -8,7 +8,7 @@
 }
 <h1>Registration Page</h1>
 <h3>Sign up below:</h3>
-<form action="/Home/AddUser" onsubmit="return ValidateLastName()" method="post">
+<form action="/Home/AddUser" onsubmit="return JSValidate()" method="post">
     <!--experiment with get and post-->
     <label class="control-label">
         First Name:
@@ -24,7 +24,7 @@
     </label> <br />
     <label class="control-label">
         Confirm Email:
-        <input type="email" name="ConfirmEmail" id="ConfirmEmail" class="form-control" placeholder="Xxx@xxx.com" onkeyup="check_match2()" onsubmit="EmailsEqual()"/>
+        <input type="email" name="ConfirmEmail" id="ConfirmEmail" class="form-control" placeholder="Xxx@xxx.com" onkeyup="check_match2()"/>
         <span id="message2"></span>
     </label> <br />
     <label class="control-label">
@@ -41,13 +41,15 @@
     </label> <br />
     <label class="control-label">
         Confirm Password:
-        <input type="password" name="PasswordConfirm" id="PasswordConfirm" class="form-control" onkeyup="check_match()" onsubmit="PasswordsEqual()"/>
+        <input type="password" name="PasswordConfirm" id="PasswordConfirm" class="form-control" onkeyup="check_match()"/>
         <span id="message"></span>
     </label> <br />
     <br/>
     <fieldset>
-        <legend>Non-Text Fieldsets</legend>@*none are connected to anything yet*@
-        Excitement Meter:<p>Bummed<input type="range" name="Excitement" id="Excitement" class="form-control" />Hyped</p>
+        <section>
+            <p>Excitement Meter:</p><span>Bummed</span><input type="range" name="Excitement" id="Excitement" class="form-control" /><span>Hyped</span>
+        </section><legend>Non-Text Fieldsets</legend>@*none are connected to anything yet*@
+        
         Sign up for promotions?<input type="checkbox" name="Promo" id="Promo" class="form-control" />
         Are you cool?<br />
         <input type="radio" name="Cool" value="yes"> Yes<br>
