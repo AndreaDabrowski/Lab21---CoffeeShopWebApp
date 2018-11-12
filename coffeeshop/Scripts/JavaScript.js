@@ -3,20 +3,21 @@ function ValidateLastName() {
     var lastName = document.getElementById("LastName").value
     var reg = /^[a-zA-Z]{2,}/
     if (lastName === null) {
-        Alert("Last Name box is not filled in");
+        alert("Last Name box is not filled in");
         return false;
     }
     else if (!reg.test(lastName)) {
-        Alert("Last Name format is invalid");
+        alert("Last Name format is invalid");
         return false;
     }
-    else {
+    else
+    {
         return true;
     }
 }
 function ValidateFirstName() {
     if (document.getElementById("FirstName").value === null) {
-        Alert("That box is not filled in")
+        alert("That box is not filled in")
         return false;
     }
     else {
@@ -32,15 +33,87 @@ function ValidateEmail() {
         return true;
     }
     else {
-        alert("Email is in incorrect format");
+        alert("Email is in incorrect format")
         return false;
     }
 }
 function JSValidate() {
-    if (PasswordsEqual() && EmailsEqual() && ValidateLastName()) {
+    if (NullAlertPassword() && NullAlertConfirmPassword() && NullAlertFirstName() && NullAlertBirthday() && NullAlertConfirmEmail() && NullAlertEmail && NullAlertPhoneNumber() && PasswordsEqual() && EmailsEqual()) {
         return true;
     }
     else {
+        return false;
+    }
+}
+function NullAlertPassword() {
+    if (document.getElementById("Password").value !== "") {
+        return true;
+    }
+    else {
+        alert("The Password field must contain input")
+        return false;
+    }
+}
+function NullAlertConfirmPassword() {
+    if (document.getElementById("PasswordConfirm").value !== "") {
+        return true;
+    }
+    else {
+        alert("The Confirm Password field must contain input")
+        return false;
+    }
+}
+function NullAlertFirstName() {
+    if (document.getElementById("FirstName").value !== "") {
+        return true;
+    }
+    else {
+        alert("The Last Name field must contain input")
+        return false;
+    }
+}
+function NullAlertLastName() {
+    if (document.getElementById("LastName").value !== "") {
+        return true;
+    }
+    else {
+        alert("The Last Name field must contain input")
+        return false;
+    }
+}
+function NullAlertEmail() {
+    if (document.getElementById("Email").value !== "") {
+        return true;
+    }
+    else {
+        alert("The Email field must contain input")
+        return false;
+    }
+}
+function NullAlertConfirmEmail() {
+    if (document.getElementById("ConfirmEmail").value !== "") {
+        return true;
+    }
+    else {
+        alert("The Confirm Email field must contain input")
+        return false;
+    }
+}
+function NullAlertBirthday() {
+    if (document.getElementById("Birthday").value !== "") {
+        return true;
+    }
+    else {
+        alert("The Birthday field must contain input")
+        return false;
+    }
+}
+function NullAlertPhoneNumber() {
+    if (document.getElementById("PhoneNumber").value !== "") {
+        return true;
+    }
+    else {
+        alert("The Phone Number field must contain input")
         return false;
     }
 }
