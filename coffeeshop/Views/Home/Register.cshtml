@@ -8,23 +8,19 @@
 }
 <h1>Registration Page</h1>
 <h3>Sign up below:</h3>
-<form action="/Home/AddUser" onsubmit="return JSValidate()" method="post">
+<form action="/Home/AddUser" onsubmit="return JSValidate()" method="post" id="Form">
     <!--experiment with get and post-->
     <label class="control-label">
-        First Name:
-        <input type="text" name="FirstName" id="FirstName" class="form-control" placeholder="John" />
+        <input type="text" name="FirstName" id="FirstName" class="form-control" placeholder="First Name" pattern="^[a-ZA-Z][1,]$" title="Error Message! You dont need this!" />
     </label> <br />
     <label class="control-label">
-        Last Name:
-        <input type="text" name="LastName" id="LastName" class="form-control" placeholder="Doe" onsubmit="ValidateLastName()"/>
+        <input type="text" name="LastName" id="LastName" class="form-control" placeholder="Last Name" onsubmit="ValidateLastName()"/>
     </label> <br />
     <label class="control-label">
-        Email:
-        <input type="email" name="Email" id="Email" class="form-control" placeholder="Xxx@xxx.com" onkeyup="check_match2()"/>
+        <input type="email" name="Email" id="Email" class="form-control" placeholder="Email" onkeyup="check_match2()"/>
     </label> <br />
     <label class="control-label">
-        Confirm Email:
-        <input type="email" name="ConfirmEmail" id="ConfirmEmail" class="form-control" placeholder="Xxx@xxx.com" onkeyup="check_match2()"/>
+        <input type="email" name="ConfirmEmail" id="ConfirmEmail" class="form-control" placeholder="Confirm Email" onkeyup="check_match2()"/>
         <span id="message2"></span>
     </label> <br />
     <label class="control-label">
@@ -32,16 +28,13 @@
         <input type="date" name="Birthdate" id="Birthdate" class="form-control" />
     </label> <br />
     <label class="control-label">
-        Phone Number:
-        <input type="tel" name="PhoneNumber" id="PhoneNumber" class="form-control" placeholder="1234567890" />
+        <input type="tel" name="PhoneNumber" id="PhoneNumber" class="form-control" placeholder="Phone Number" />
     </label> <br />
     <label class="control-label">
-        Password:
-        <input type="password" name="Password" id="Password" class="form-control" onkeyup="check_match()" />
+        <input type="password" name="Password" id="Password" class="form-control" placeholder="Password" onkeyup="check_match()" />
     </label> <br />
     <label class="control-label">
-        Confirm Password:
-        <input type="password" name="PasswordConfirm" id="PasswordConfirm" class="form-control" onkeyup="check_match()"/>
+        <input type="password" name="PasswordConfirm" id="PasswordConfirm" class="form-control" placeholder ="Confirm Password"onkeyup="check_match()"/>
         <span id="message"></span>
     </label> <br />
     <br/>
@@ -57,9 +50,11 @@
         <input type="radio" name="Cool" value="other"> Other
     </fieldset>
 
-    <input type="submit" value="Register!" class="btn-default" />
+    <input type="submit" value="Register!" class="btn-default" id="RegisterButton"/> <!--you can also put JS() reference here-->
+
 
 
 </form>
 <script src="~/Scripts/Javascript.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 

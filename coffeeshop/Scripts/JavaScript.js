@@ -1,7 +1,21 @@
 ﻿
+/*$(document).ready(
+    
+    $('#regFirstName').change(function () {
+        var fnRegex = /^[a-zA-Z]{2,}$/g;
+        var firstNameValue = $('#regFirstName'.val());
+        if (!fnRegex.test(firstNameValue)) {
+            $('#regFirstName').css('border', 'red');
+        }
+        else {
+            $('#regFirstName').css('border', 'green');
+        }
+    })
+);*/
+
 function ValidateLastName() {
-    var lastName = document.getElementById("LastName").value
-    var reg = /^[a-zA-Z]{2,}/
+    var lastName = document.getElementById("LastName").value;
+    var reg = /^[a-zA-Z]{2,}$/g;
     if (lastName === null) {
         alert("Last Name box is not filled in");
         return false;
@@ -16,8 +30,14 @@ function ValidateLastName() {
     }
 }
 function ValidateFirstName() {
-    if (document.getElementById("FirstName").value === null) {
-        alert("That box is not filled in")
+    var firstName = document.getElementById("FirstName").value;
+    var reg = /^[a-zA-Z]{2,}$/g;
+    if (firstName === null) {
+        alert("First Name box is not filled in");
+        return false;
+    }
+    else if (!reg.test(firstName)) {
+        alert("First Name format is invalid");
         return false;
     }
     else {
@@ -27,18 +47,22 @@ function ValidateFirstName() {
 
 function ValidateEmail() {
     var email = document.getElementById("Email").value;
-    var re = email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-    if (re) {
-
-        return true;
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g;
+    if (email === null) {
+        alert("Email box is not filled in");
+        return false;
     }
-    else {
+    else if (!re.test(email)) {
+
         alert("Email is in incorrect format")
         return false;
     }
+    else {
+        return true;
+    }
 }
 function JSValidate() {
-    if (NullAlertPassword() && NullAlertConfirmPassword() && NullAlertFirstName() && NullAlertBirthday() && NullAlertConfirmEmail() && NullAlertEmail && NullAlertPhoneNumber() && PasswordsEqual() && EmailsEqual()) {
+    if (ValidateLastName() && NullAlertPassword() && NullAlertConfirmPassword() && ValidateFirstName() && NullAlertBirthday() && NullAlertConfirmEmail() && ValidateEmail() && NullAlertPhoneNumber() && PasswordsEqual() && EmailsEqual()) {
         return true;
     }
     else {
@@ -68,7 +92,7 @@ function NullAlertFirstName() {
         return true;
     }
     else {
-        alert("The Last Name field must contain input")
+        alert("The First Name field must contain input")
         return false;
     }
 }
