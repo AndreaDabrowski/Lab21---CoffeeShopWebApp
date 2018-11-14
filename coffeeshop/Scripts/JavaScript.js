@@ -1,10 +1,9 @@
 ﻿function JSValidate() {
-    if (ValidateLastName() && ValidatePassword() && ValidateConfirmPassword() && ValidateFirstName() && NullAlertBirthday() && ValidateConfirmEmail() && ValidateEmail() && ValidatePhoneNumber() ) {
+    if (ValidateLastName() && ValidatePassword() && ValidateConfirmPassword() && ValidateFirstName() && ValidateConfirmEmail() && ValidateEmail() && ValidatePhoneNumber() && TestBirthday()) && PasswordsEqual() && EmailsEqual(){
         return true;
     }
-    else {
-        return false;
-    }
+    return false;
+    
 }
 /*function validForm(Form) {
     var errs = Sys.Mvc.FormContext.getValidationForForm(Form).validate(document.getElementById("Form"));
@@ -120,6 +119,23 @@ function ValidatePhoneNumber() {
     else {
         return true;
     }
+
+}
+function TestBirthday() {
+    var num = document.getElementById("Birthday").value;
+    var re = /^(0[1-9]|1[012])[-/.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)\\d\\d$/g;
+    if (num === "") {
+        alert("Birthday is not filled in");
+        return false;
+    }
+    else if (!re.test(num)) {
+
+        alert("Birthday is in incorrect format (mm/dd/yyy)")
+        return false;
+    }
+    else {
+        return true;
+    }
 }
 function NullAlertPassword() {
     if (document.getElementById("Password").value !== "") {
@@ -176,7 +192,7 @@ function NullAlertConfirmEmail() {
     }
 }
 function NullAlertBirthday() {
-    if (document.getElementById("Birthday").value !== DateTime.MinValue) {//only way to validate is to check for no input, non functional
+    if (document.getElementById("Birthday").value !== "") {//only way to validate is to check for no input, non functional
         return true;
     }
     else {

@@ -18,7 +18,6 @@ namespace CoffeeShop.Models
         public string u_lastname { get; set; }
         public string u_email { get; set; }
         public string u_password { get; set; }
-        public System.DateTime u_birthday { get; set; }
         public string u_phonenumber { get; set; }
         public string u_promo { get; set; }
         public string u_preference { get; set; }

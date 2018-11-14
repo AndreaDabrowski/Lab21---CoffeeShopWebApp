@@ -244,12 +244,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\Summary.cshtml" />
-    <Content Include="Views\Home\ItemList.cshtml" />
     <Content Include="Views\Items\Create.cshtml" />
     <Content Include="Views\Items\Delete.cshtml" />
     <Content Include="Views\Items\Details.cshtml" />
     <Content Include="Views\Items\Edit.cshtml" />
     <Content Include="Views\Items\Index.cshtml" />
+    <Content Include="Views\Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

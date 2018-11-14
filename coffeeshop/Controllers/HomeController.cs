@@ -11,6 +11,9 @@ namespace CoffeeShop.Controllers
     {
         public ActionResult Index()
         {
+            CoffeeShopDBEntities ORM2 = new CoffeeShopDBEntities();
+            ViewBag.SendDB = ORM2.Items.ToList<Item>();
+
             return View();
         }
 
@@ -33,7 +36,19 @@ namespace CoffeeShop.Controllers
 
             return View();
         }
-        public ActionResult AddUser(UserInput newUser)
+        public ActionResult AddNewUser(User newUser)
+        {
+            CoffeeShopDBEntities ORM = new CoffeeShopDBEntities();
+            ORM.Users.Add(newUser);//items references which table you want
+            ORM.SaveChanges();
+            ViewBag.SendDB = ORM.Items.ToList<Item>();
+            ViewBag.AddedUser = "User was successfully added";
+            return View("Index");
+        }
+
+    }
+}
+        /*public ActionResult AddUser(UserInput newUser)
         {
             // ToDo: validation!!!!!!
 
@@ -54,15 +69,4 @@ namespace CoffeeShop.Controllers
             {
                 return View("Error");
             }
-        }
-        public ActionResult AddNewUser(User newUser)
-        {
-            CoffeeShopDBEntities ORM = new CoffeeShopDBEntities();
-            ORM.Users.Add(newUser);//items references which table you want
-            ORM.SaveChanges();
-            ViewBag.AddedUser = "User was successfully added";
-            return View("Register");
-        }
-
-    }
-}
+        }*/

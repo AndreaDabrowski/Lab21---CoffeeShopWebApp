@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CoffeeShopDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CoffeeShopDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Items">
           <Key>
             <PropertyRef Name="i_name" />
@@ -22,7 +22,6 @@
           <Property Name="u_lastname" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="u_email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="u_password" Type="varchar" MaxLength="25" Nullable="false" />
-          <Property Name="u_birthday" Type="date" Nullable="false" />
           <Property Name="u_phonenumber" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="u_promo" Type="varchar" MaxLength="20" />
           <Property Name="u_preference" Type="nchar" MaxLength="20" />
@@ -31,8 +30,7 @@
           <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CoffeeShopDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -53,7 +51,6 @@
           <Property Name="u_lastname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="u_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="u_password" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="u_birthday" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="u_phonenumber" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="u_promo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="u_preference" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
@@ -85,7 +82,6 @@
                 <ScalarProperty Name="u_lastname" ColumnName="u_lastname" />
                 <ScalarProperty Name="u_email" ColumnName="u_email" />
                 <ScalarProperty Name="u_password" ColumnName="u_password" />
-                <ScalarProperty Name="u_birthday" ColumnName="u_birthday" />
                 <ScalarProperty Name="u_phonenumber" ColumnName="u_phonenumber" />
                 <ScalarProperty Name="u_promo" ColumnName="u_promo" />
                 <ScalarProperty Name="u_preference" ColumnName="u_preference" />

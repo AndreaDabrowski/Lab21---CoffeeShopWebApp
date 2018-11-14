@@ -84,7 +84,6 @@ C:\Users\Andre\source\repos\CoffeeShop\CoffeeShop\bin\Microsoft.AI.DependencyCol
 C:\Users\Andre\source\repos\CoffeeShop\CoffeeShop\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Andre\source\repos\CoffeeShop\CoffeeShop\bin\Microsoft.AI.Web.xml
 C:\Users\Andre\source\repos\CoffeeShop\CoffeeShop\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Andre\source\repos\CoffeeShop\CoffeeShop\obj\Debug\CoffeeShop.csprojAssemblyReference.cache
 C:\Users\Andre\source\repos\CoffeeShop\CoffeeShop\obj\Debug\CoffeeShop.csproj.CoreCompileInputs.cache
 C:\Users\Andre\source\repos\CoffeeShop\CoffeeShop\obj\Debug\CoffeeShop.csproj.CopyComplete
 C:\Users\Andre\source\repos\CoffeeShop\CoffeeShop\obj\Debug\CoffeeShop.dll
@@ -93,3 +92,4 @@ C:\Users\Andre\source\repos\CoffeeShop\CoffeeShop\bin\EntityFramework.dll
 C:\Users\Andre\source\repos\CoffeeShop\CoffeeShop\bin\EntityFramework.SqlServer.dll
 C:\Users\Andre\source\repos\CoffeeShop\CoffeeShop\bin\EntityFramework.xml
 C:\Users\Andre\source\repos\CoffeeShop\CoffeeShop\bin\EntityFramework.SqlServer.xml
+C:\Users\Andre\source\repos\CoffeeShop\CoffeeShop\obj\Debug\CoffeeShop.csprojAssemblyReference.cache
