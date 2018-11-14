@@ -55,6 +55,14 @@ namespace CoffeeShop.Controllers
                 return View("Error");
             }
         }
+        public ActionResult AddNewUser(User newUser)
+        {
+            CoffeeShopDBEntities ORM = new CoffeeShopDBEntities();
+            ORM.Users.Add(newUser);//items references which table you want
+            ORM.SaveChanges();
+            ViewBag.AddedUser = "User was successfully added";
+            return View("Register");
+        }
 
     }
 }

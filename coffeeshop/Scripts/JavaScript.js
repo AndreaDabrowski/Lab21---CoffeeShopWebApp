@@ -1,22 +1,19 @@
-﻿
-/*$(document).ready(
-    
-    $('#regFirstName').change(function () {
-        var fnRegex = /^[a-zA-Z]{2,}$/g;
-        var firstNameValue = $('#regFirstName'.val());
-        if (!fnRegex.test(firstNameValue)) {
-            $('#regFirstName').css('border', 'red');
-        }
-        else {
-            $('#regFirstName').css('border', 'green');
-        }
-    })
-);*/
-
+﻿function JSValidate() {
+    if (ValidateLastName() && ValidatePassword() && ValidateConfirmPassword() && ValidateFirstName() && NullAlertBirthday() && ValidateConfirmEmail() && ValidateEmail() && ValidatePhoneNumber() ) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+/*function validForm(Form) {
+    var errs = Sys.Mvc.FormContext.getValidationForForm(Form).validate(document.getElementById("Form"));
+    return (!(errs && errs.length));
+}*/
 function ValidateLastName() {
     var lastName = document.getElementById("LastName").value;
     var reg = /^[a-zA-Z]{2,}$/g;
-    if (lastName === null) {
+    if (lastName === "") {
         alert("Last Name box is not filled in");
         return false;
     }
@@ -32,7 +29,7 @@ function ValidateLastName() {
 function ValidateFirstName() {
     var firstName = document.getElementById("FirstName").value;
     var reg = /^[a-zA-Z]{2,}$/g;
-    if (firstName === null) {
+    if (firstName === "") {
         alert("First Name box is not filled in");
         return false;
     }
@@ -44,29 +41,84 @@ function ValidateFirstName() {
         return true;
     }
 }
-
-function ValidateEmail() {
-    var email = document.getElementById("Email").value;
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g;
-    if (email === null) {
-        alert("Email box is not filled in");
+function ValidatePassword() {
+    var password = document.getElementById("Password").value;
+    var reg = /^[A-z0-9]{2,}$/g;
+    if (password === "") {
+        alert("Password box is not filled in");
         return false;
     }
-    else if (!re.test(email)) {
-
-        alert("Email is in incorrect format")
+    else if (!reg.test(password)) {
+        alert("Password must contain only numbers and letters");
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+function ValidateConfirmPassword() {//not functional, and also not necessary
+    var cpassword = document.getElementById("PasswordConfirm").value;
+    var reg = /^[A-z0-9]{2,}$/g;
+    if (cpassword === "") {
+        alert("Confirm password box is not filled in");
+        return false;
+    }
+    else if (!reg.test(cpassword)) {
+        alert("Confirm password must contain only numbers and letters");
         return false;
     }
     else {
         return true;
     }
 }
-function JSValidate() {
-    if (ValidateLastName() && NullAlertPassword() && NullAlertConfirmPassword() && ValidateFirstName() && NullAlertBirthday() && NullAlertConfirmEmail() && ValidateEmail() && NullAlertPhoneNumber() && PasswordsEqual() && EmailsEqual()) {
-        return true;
+
+function ValidateEmail() {
+    var email = document.getElementById("Email").value;
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g;
+    if (email === "") {
+        alert("Email box is not filled in");
+        return false;
+    }
+    else if (!re.test(email)) {
+
+        alert("Email is not in incorrect format (email@domain.com)")
+        return false;
     }
     else {
+        return true;
+    }
+}
+function ValidateConfirmEmail() {
+    var cemail = document.getElementById("ConfirmEmail").value;
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g;
+    if (cemail === "") {
+        alert("Confirm Email box is not filled in");
         return false;
+    }
+    else if (!re.test(cemail)) {
+
+        alert("Confirm Email is not in incorrect format (email@domain.com)")
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+function ValidatePhoneNumber() {
+    var num = document.getElementById("PhoneNumber").value;
+    var re = /^[0-9]{10}$/g;
+    if (num === "") {
+        alert("Phone Number is not filled in");
+        return false;
+    }
+    else if (!re.test(num)) {
+
+        alert("Phone Number is in incorrect format, use numbers only")
+        return false;
+    }
+    else {
+        return true;
     }
 }
 function NullAlertPassword() {
@@ -124,7 +176,7 @@ function NullAlertConfirmEmail() {
     }
 }
 function NullAlertBirthday() {
-    if (document.getElementById("Birthday").value !== "") {
+    if (document.getElementById("Birthday").value !== DateTime.MinValue) {//only way to validate is to check for no input, non functional
         return true;
     }
     else {
@@ -184,3 +236,17 @@ function EmailsEqual() {
         return false;
     }
 }
+
+/*$(document).ready(
+    
+    $('#regFirstName').change(function () {
+        var fnRegex = /^[a-zA-Z]{2,}$/g;
+        var firstNameValue = $('#regFirstName'.val());
+        if (!fnRegex.test(firstNameValue)) {
+            $('#regFirstName').css('border', 'red');
+        }
+        else {
+            $('#regFirstName').css('border', 'green');
+        }
+    })
+);*/

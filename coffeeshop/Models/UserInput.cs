@@ -38,7 +38,13 @@ namespace CoffeeShop.Models
 
         [Required]
         //[RegularExpression(@"^(0[1-9]|1[012])[/](0[1-9]|[12][0-9]|3[01])[/](19|20)\d\d$")]
-        public string BirthDate { set; get; }
+        public DateTime BirthDate { set; get; }
+
+        /*[Required]
+        public string Promo { set; get; }
+
+        [Required]
+        public string Preference { set; get; }*/
 
         public UserInput()
         {
@@ -47,11 +53,13 @@ namespace CoffeeShop.Models
             Email = "";
             PhoneNumber = "";
             Password = "";
-            BirthDate = "";
+            BirthDate = DateTime.MinValue;
             PasswordConfirm = "";
             ConfirmEmail = "";
+            //Preference = "";
+            //Promo = "";
         }
-        public UserInput(string fn, string ln, string em, string cem, string pn, string pw, string pwc, string bd)
+        public UserInput(string fn, string ln, string em, string cem, string pn, string pw, string pwc, DateTime bd) //string pref, string promo)
         {
             FirstName = fn;
             LastName = ln;
@@ -61,6 +69,8 @@ namespace CoffeeShop.Models
             BirthDate = bd;
             PasswordConfirm = pwc;
             ConfirmEmail = cem;
+            //Preference = pref;
+            //Promo = promo;
 
             
         }

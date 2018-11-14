@@ -5,36 +5,39 @@
 
 @{
     ViewBag.Title = "Register";
+
 }
 <h1>Registration Page</h1>
 <h3>Sign up below:</h3>
-<form action="/Home/AddUser" onsubmit="return JSValidate()" method="post" id="Form">
-    <!--experiment with get and post-->
+
+<h3>@ViewBag.AddedUser</h3><br />
+<form action="/Home/AddNewUser" method="post" id="Form"> <!--onsubmit="validForm(this.form)">-->
+    
     <label class="control-label">
-        <input type="text" name="FirstName" id="FirstName" class="form-control" placeholder="First Name" pattern="^[a-ZA-Z][1,]$" title="Error Message! You dont need this!" />
+        <input type="text" name="FirstName" id="FirstName" class="form-control" placeholder="First Name" onchange="ValidateFirstName()" /><!-- pattern="^[a-ZA-Z][1,]$" title="Error Message! You dont need this!"-->
     </label> <br />
     <label class="control-label">
-        <input type="text" name="LastName" id="LastName" class="form-control" placeholder="Last Name" onsubmit="ValidateLastName()"/>
+        <input type="text" name="LastName" id="LastName" class="form-control" placeholder="Last Name" onchange="ValidateLastName()"/>
     </label> <br />
     <label class="control-label">
-        <input type="email" name="Email" id="Email" class="form-control" placeholder="Email" onkeyup="check_match2()"/>
+        <input type="email" name="Email" id="Email" class="form-control" placeholder="Email" onkeyup="check_match2()" onchange="ValidateEmail()"/>
     </label> <br />
     <label class="control-label">
-        <input type="email" name="ConfirmEmail" id="ConfirmEmail" class="form-control" placeholder="Confirm Email" onkeyup="check_match2()"/>
+        <input type="email" name="ConfirmEmail" id="ConfirmEmail" class="form-control" placeholder="Confirm Email" onkeyup="check_match2()" onchange="EmailsEqual()"/>
         <span id="message2"></span>
     </label> <br />
     <label class="control-label">
         Birthdate:
-        <input type="date" name="Birthdate" id="Birthdate" class="form-control" />
+        <input type="date" name="Birthdate" id="Birthdate" class="form-control" onchange="ValidateBirthday()"/>
     </label> <br />
     <label class="control-label">
-        <input type="tel" name="PhoneNumber" id="PhoneNumber" class="form-control" placeholder="Phone Number" />
+        <input type="tel" name="PhoneNumber" id="PhoneNumber" class="form-control" placeholder="Phone Number" onchange="ValidatePhoneNumber()"/>
     </label> <br />
     <label class="control-label">
-        <input type="password" name="Password" id="Password" class="form-control" placeholder="Password" onkeyup="check_match()" />
+        <input type="password" name="Password" id="Password" class="form-control" placeholder="Password" onkeyup="check_match()" onchange="ValidatePassword()"/>
     </label> <br />
     <label class="control-label">
-        <input type="password" name="PasswordConfirm" id="PasswordConfirm" class="form-control" placeholder ="Confirm Password"onkeyup="check_match()"/>
+        <input type="password" name="PasswordConfirm" id="PasswordConfirm" class="form-control" placeholder ="Confirm Password"onkeyup="check_match()" onchange="PasswordsEqual()"/>
         <span id="message"></span>
     </label> <br />
     <br/>
@@ -42,15 +45,16 @@
         <section>
             <p>Excitement Meter:</p><span>Bummed</span><input type="range" name="Excitement" id="Excitement" class="form-control" /><span>Hyped</span>
         </section><legend>Non-Text Fieldsets</legend>@*none are connected to anything yet*@
-        
+
         Sign up for promotions?<input type="checkbox" name="Promo" id="Promo" class="form-control" />
-        Are you cool?<br />
-        <input type="radio" name="Cool" value="yes"> Yes<br>
-        <input type="radio" name="Cool" value="no"> No<br>
-        <input type="radio" name="Cool" value="other"> Other
+        What are you shopping for?<br />
+        <input type="radio" name="Preferences" value="Drinks"> Drinks<br>
+        <input type="radio" name="Preferences" value="BakeryItems"> Bakery Items<br>
+        <input type="radio" name="Preferences" value="NonFoodItems"> Non-Food Items<br>
+        <input type="radio" name="Preferences" value="No Preference"> No Preference<br>
     </fieldset>
 
-    <input type="submit" value="Register!" class="btn-default" id="RegisterButton"/> <!--you can also put JS() reference here-->
+    <input type="submit" onsubmit="return JSValidate()" value="Register!" class="btn-default" id="RegisterButton"/> <!--you can also put JS() reference here-->
 
 
 
